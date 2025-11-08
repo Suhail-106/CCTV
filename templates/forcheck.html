@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCTV & Electrical Services</title>
+  <link href="{% static 'output.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Header -->
+  <header class="bg-blue-900 text-white p-4 shadow">
+    <h1 class="text-2xl font-bold">CCTV & Electrical Solutions</h1>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="p-8 text-center bg-gray-200">
+    <h2 class="text-3xl font-semibold">Secure Your Home & Office</h2>
+    <p class="mt-4 text-lg">Professional CCTV Installation and Electrical Work</p>
+    <button class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+      Get a Free Quote
+    </button>
+  </section>
+
+  <!-- Services -->
+  <section class="p-8 grid md:grid-cols-3 gap-6">
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="font-bold text-xl mb-2">CCTV Installation</h3>
+      <p>High-quality CCTV cameras & DVR installation for homes, shops, and offices.</p>
+    </div>
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="font-bold text-xl mb-2">Electrical Services</h3>
+      <p>All types of wiring, lighting, and maintenance work with expert electricians.</p>
+    </div>
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="font-bold text-xl mb-2">Maintenance</h3>
+      <p>Annual maintenance contracts for CCTV & electrical systems.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 CCTV & Electrical Solutions | All Rights Reserved</p>
+  </footer>
+</body>
+</html>

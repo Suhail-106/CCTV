@@ -1,0 +1,45 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile Edit</title>
+    <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static 'output.css' %}">
+    <script src="{% static 'index.js' %}"></script>
+</head>
+<body>
+  <div class="min-[430px]:hidden absolute w-full [%>p]:w-full bg-white p-4 [&>p]:py-6 transition-all ease-in-out duration-1000
+  [&>p:hover]:bg-slate-100 [&>p]:p-2 [&>p>span]:float-right [&>p]:rounded [&>hr]:text-slate-400 [&>p>i]:p-2 rounded font-serif">
+
+  <h1 class="text-2xl text-center font-semibold shadow py-2"><span onclick="profileR1()" class="float-left"><i class="fa-solid fa-left-long"></i></span> Profile details</h1>
+{% with datasave.last as last_item %}
+  <p><i class="fa-solid fa-user"></i>Name:-  <span>{{ last_item.name}}</span></p>
+  <hr>
+  <p><i class="fa-solid fa-circle-user"></i>Username:- <span>{{ last_item.username }}</span></p>
+  <hr>
+  <p><i class="fa-solid fa-envelope-circle-check"></i>UserEmail:- <span>{{  last_item.email }}</span></p>
+  <hr>
+  <p><i class="fa-solid fa-transgender"></i>Usergender:- <span>{{ last_item.gender }}</span></p>
+  <hr>
+  <p><i class="fa-solid fa-unlock"></i><a href="{% url 'edit' last_item.id %}">changepassword</a></p>
+  <hr>
+  <p><i class="fa-solid fa-calendar-days"></i>Date of birth:- <span>{{  last_item.DOB }}</span></p>
+  <hr>
+  <h1 class=" py-1 text-blue-700 "><a href="{% url 'edit' last_item.id %}">if you can change every fields tap below this tag </a></h1>
+  <h1 class="text-center"><a href="{% url 'edit' last_item.id %}"><i class="fa-solid fa-pen-to-square bg-slate-700 hover:bg-slate-500 hover:text-black p-4 rounded-full text-white"></i></a></h1>
+  
+ {% endwith %}
+   {% if logged_in %}
+    <p >
+       <i class="fa-solid fa-right-from-bracket"></i><a href="{% url 'logout' %}">Logout</a>
+    </p>
+  {% else %}
+      <p >
+           <i class="fa-solid fa-right-to-bracket"></i><a href="{% url 'login' %}">Login</a>
+       </p>                                                             
+  {% endif %} 
+  
+      </div>
+</body>
+</html>

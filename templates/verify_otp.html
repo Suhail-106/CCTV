@@ -1,0 +1,28 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazone/Verify_otp</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body>
+    <div class="w-80 h-50 mx-auto  p-5 shadow rounded"> 
+         {% if error_message %}
+    <p class="text-red-700 font-semibold py-4">{{ error_message }}</p>
+    {% endif %}
+    {% if request.session.username and request.session.email %}
+    <p class="w-full h-20">✅ OTP has been sent to <br>email: <b>{{ request.session.email }}</b> username: <b>{{ request.session.username }}</b>.</p>
+     {% endif %}
+
+   <!-- OTP input form -->
+    <form method="POST" class="[&>input]:w-50 [&>input]:bg-slate-50 font-semibold [&>input]:border-2 [&>input]:border-transparent
+          [&>input:hover]:border-blue-500 [&>input]:rounded [&>input]:p-1  rounded">
+    {% csrf_token %}
+    <input type="text" name="otp" placeholder="Enter OTP">
+    <button type="submit">Verify</button>
+    </div>
+   
+</form> 
+</body>
+</html>

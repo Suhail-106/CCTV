@@ -1,0 +1,84 @@
+{% load static %}  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     <div class="min-[430px]:hidden p-2 px-2 font-serif font-semibold shadow">
+  <h1 class="bg-blue-100 p-4 rounded-md">Electrical services
+          <span class="float-right"> 
+               {% if logged_in %}
+        {% if messages %}
+            <script>
+                {% for message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'signup' %}">Signup</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+                </span>
+  </h1>
+
+</div>
+<div class="p-2 [&>*]:py-2 [&>*>span]:float-right font-serif [&>*]:w-full">
+  <h1 class="text-center font-semibold text-2xl ">Order Summary</h1>
+
+  {% if order_count > 0 %}
+    <p>Name: <span>{{ user_name }}</span></p>
+    <p>Email: <span>{{ user_email }}</span></p>
+    <p>You have placed <span>{{ order_count }}</span> orders.</p>
+
+    <hr class="my-4">
+
+    <!-- Orders list -->
+    <div class="space-y-4">
+      {% for order in orders %}
+        <div class="border p-3 rounded">
+          <div class="flex justify-between">
+            <div>
+              <p class="font-semibold">Order #{{ order.id }}</p>
+              <p class="text-sm">Category: {{ order.selectcategory }}</p>
+            </div>
+            <div class="text-sm text-gray-600">
+              {% if order.created_at %}
+                {{ order.created_at|date:"d M Y, H:i" }}
+              {% else %}
+                <!-- fallback if no created_at -->
+                ID: {{ order.id }}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="mt-2">
+            <p><strong>Address:</strong> {{ order.address }}</p>
+            <p><strong>Message:</strong> {{ order.massage }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  {% else %}
+    <p>No orders found.</p>
+  {% endif %}
+</div>
+
+
+
+
+<div class=" min-[430px]:hidden mx-auto bg-white fixed bottom-0 border-1 px-2 border-l-0 border-r-0 border-b-0  shadow-black 
+[&>a]:text-xl text-center [&>a>i]:p-4 [&>a>i]:px-8  gap-5 flex  border-slate-700 z-10">
+ <a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i></a>
+ <a href="{% url 'manubar' %}"><i class="fa-solid fa-bars "></i></a>
+ <a href="{% url 'orders' %}"><i class="fa-brands fa-jedi-order "></i></a>
+ <a href="{% url 'profileedit' %}"><i class="fa-solid fa-user "></i></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,497 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <script src="{% static 'index.js' %}"></script>
+
+	  <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+
+    <style>
+      
+  .nested-box1
+  {
+   width: 100%;
+   height:100%;
+   animation:spin3d 12s infinite linear, gradientshift 5s infinite alternate ease-in-out;
+   transform-style: preserve-3d; 
+   transform-origin:center;
+   border-radius:12px;
+   background: linear-gradient(45deg, red, blue, green);
+   box-shadow: 0 0 15px white,
+               0 0 30px blue;
+   transition:animation-duration 0.3s, transform 0.3s;
+  }
+  .nested-box1:hover{
+    animation-duration:6s;
+    transform:scale(1.05);
+    box-shadow: 0 0 30px white,
+                0 0 60px blue;
+
+  }
+
+   @keyframes spin3d {
+    0% {transform: rotateX(0deg) rotateY(0deg) scale(1); }
+    50% {transform: rotateX(180deg) rotateY(180deg) scale(1.05); }
+    100% {transform: rotateX(360deg) rotateY(360deg) scale(1); }
+   }
+
+   @keyframes gradientshift{
+    0%{ background-position: 0% 50%;}
+    100%{ background-position: 100% 50%;}
+
+   }
+   #imagesaved.active{display:flex;}
+  #imagesaved1.active{display:flex;}
+  #profile.active{display:block}
+  #profile1.active{right:0;}
+
+
+   .welcome{
+    animation: up 2s linear;
+   }
+  @keyframes up {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.image_container img.active {
+            display: block;
+        }      
+   .image_container1 img.active {
+            display: block;
+        }      
+
+</style>
+          
+   
+</head>
+<body class="w-screen h-screen overflow-x-hidden m-0 p-0 bg-slate-100">
+     {% if error_formfilling %}
+       <p class="bg-green-600 p-2 ">{{ error_formfilling }}</p>
+    {% endif %}
+    <div class="w-full max-[430px]:hidden h-full flex flex-wrap justify-center font-serif bg-slate-800 bg-[length:100%_100%] bg-no-repeat"
+        style="background-image:url(https://img.freepik.com/free-photo/abstract-flowing-neon-wave-background_53876-101942.jpg?semt=ais_hybrid&w=740&q=80)">
+        <div class="navbar w-full h-15 flex text-white bg-slate-800 p-4 gap-5  [&>h1]:cursor-pointer ">
+            <div class="w-12 h-full ">
+                <div class="w-10 h-10  p-1 flex justify-center items-center">
+     <div class="w-full h-full bg-blue-600 p-1 nested-box1">
+      <div class="w-full h-full bg-red-600 p-1 nested-box1">
+        <div class="w-full h-full bg-blue-600 p-1 nested-box1">
+          <div class="w-full h-full bg-red-600 p-1 nested-box1">
+            <div class="w-full h-full bg-blue-600 p-1 nested-box1">
+              <div class="w-full h-full bg-red-600 p-1 nested-box1">
+                
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+            </div>
+           
+            <h1 onclick="imagesaved(),imagesaved1r(),profileR()">CCTV Electrical
+                
+            </h1>
+            <h1 onclick="imagesaved1(),imagesavedr(),profileR()">CCTV Installation</h1>
+            <h1>Electrical Service</h1>
+            <h1>GPS Installation</h1>
+            <h1 class="w-1/2"></h1>
+            <h1 onclick="imagesaved1r(),imagesavedr(),profile()" 
+            class="p-2 w-15 text-center h-full rounded-full text-md hover:bg-slate-700"><i class="fa-regular fa-user"></i></h1>
+
+                            
+
+           
+        </div>  
+
+
+   <script>
+    navbar();
+   </script>
+
+   <!--CCTVElectrical hidden baar-->
+    <div class="hidden w-full gap-15 h-150 p-4 bg-white absolute top-15" id="imagesaved">
+          
+          <div class="w-1/5 h-full [&>h1]:font-semibold p-4 px-8 [&>p]:px-4 [&>p]:py-4 [&>p:hover]:bg-slate-200 
+            [&>P>span]:text-slate-800 [&>p>span]:text-sm items">
+            <h1>CCTV Electrical</h1>  
+            <h2 class="text-sm text-slate-800">In this, basically those people provide service in:</h2>
+           {% for CCTVElectrical in CCTVElectrical|slice:":5" %}  
+            <p data-imgs="{{ CCTVElectrical.id }}">{{ CCTVElectrical.name }}</p>
+            {% endfor %}
+            <h2 class="text-sm text-slate-800">This means the same contractor does both the CCTV + electrical work.</h2>
+          </div>
+
+          <div class="w-1/5 h-full [&>h1]:font-semibold p-4 px-8 [&>p]:px-4 [&>p]:py-4 [&>p:hover]:bg-slate-200 
+            [&>P>span]:text-slate-800 [&>p>span]:text-sm items">
+           <h1>Control, Circuit, Relay & Voltage <span>Technical/Electrical side</span></h1>
+           {% for CCTVElectrical in CCTVElectrical|slice:"5:9" %}  
+            <p data-imgs="{{ CCTVElectrical.id }}">{{ CCTVElectrical.name }}</p>
+            {% endfor %}
+          </div>
+
+           <div class="w-1/2 image_container">
+                 {% for CCTVElectrical in CCTVElectrical %}
+                <img id="myImage{{ CCTVElectrical.id }}" src="{{ CCTVElectrical.imageurl }}" 
+                class="hidden w-full h-full" alt="{{ CCTVElectrical.name }}">
+           {% endfor %}
+        </div>   
+        <h1 onclick="imagesaved1r(),imagesavedr()" class="w-full hover:bg-red-500 hover:text-white absolute bg-red-50 top-140 text-center">exit &times</h1>
+   </div>
+
+   <!--CCTV Installation hidden baar--->
+   <div class="hidden w-full bg-blue-50 gap-15 h-150 p-4 absolute top-15" id="imagesaved1">
+
+          <div class="w-1/5 h-full [&>h1]:font-semibold p-4 px-8 [&>p]:px-4 [&>p]:py-4 [&>p:hover]:bg-slate-200 
+            [&>P>span]:text-slate-800 [&>p>span]:text-sm items2">
+            <h1>CCTV Installation</h1>  
+            <h2 class="text-sm text-slate-800">In this, basically Pre-installation & planning</h2>
+           {% for CCTVElectrical in CCTVElectrical|slice:"9:12" %}  
+            <p data-imgs2="{{ CCTVElectrical.id }}">👉 {{ CCTVElectrical.name }}</p>
+            {% endfor %}
+            <h2 class="text-sm text-slate-800">Installation Phase</h2>
+            {% for CCTVElectrical in CCTVElectrical|slice:"12:14" %}  
+            <p data-imgs2="{{ CCTVElectrical.id }}">👉 {{ CCTVElectrical.name }}</p>
+            {% endfor %}
+            <h2 class="text-sm text-slate-800">This means the same contractor does both the CCTV + electrical work.</h2>
+          </div>
+
+          <div class="w-1/5 h-full [&>h1]:font-semibold p-4 px-8 [&>p]:px-4 [&>p]:py-4 [&>p:hover]:bg-slate-200 
+            [&>P>span]:text-slate-800 [&>p>span]:text-sm items2">
+           <h1>Installation phase</h1>
+           {% for CCTVElectrical in CCTVElectrical|slice:"14:15" %}  
+            <p data-imgs2="{{ CCTVElectrical.id }}">👉 {{ CCTVElectrical.name }}</p>
+            {% endfor %}
+            <h1>System Configuration</h1>
+             {% for CCTVElectrical in CCTVElectrical|slice:"15:19" %}  
+            <p data-imgs2="{{ CCTVElectrical.id }}">👉 {{ CCTVElectrical.name }}</p>
+            {% endfor %}
+          </div>
+
+           <div class="w-1/2 image_container2 ">
+                 {% for CCTVElectrical in CCTVElectrical %}
+                <img id="myImage2{{ CCTVElectrical.id }}" src="{{ CCTVElectrical.imageurl }}" 
+                class="hidden w-full h-full" alt="{{ CCTVElectrical.name }}">
+           {% endfor %}
+        </div>  
+        <h1 onclick="imagesaved1r(),imagesavedr()" class="w-full hover:bg-red-500 hover:text-white absolute bg-red-50 top-140 text-center">exit &times</h1>
+
+   </div>
+
+
+           <div class="mt-80 welcome"><h1 class=" text-9xl text-white w-full">Welcome</h1>
+              <h1 class="text-7xl text-white">Electrical services</h1>
+           </div>
+</div>
+
+
+<div class="min-[430px]:hidden p-2 px-2 font-serif font-semibold shadow">
+  <h1 class="bg-blue-100 p-4 rounded-md">Electrical services
+          <span class="float-right"> 
+               {% if logged_in %}
+        {% if messages %}
+            <script>
+                {% for message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'signup' %}">Signup</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+                </span>
+  </h1>
+
+</div>
+<div class="min-[430px]:hidden w-full bg-blue-500 flex gap-4 h-120 p-4 bg-cover bg-no-repeat" style="background-image:url(https://tiimg.tistatic.com/fp/1/007/800/white-excellent-performance-indoor-cctv-camera-security-installation-service-462.jpg)">
+    <div class="size-50 p-10 bg-yellow-500 rounded-2xl shadow-sm shadow-black mt-50 ml-35">
+         <div class="size-50 bg-white rounded-2xl font-serif justify-center items-center p-6 py-10">
+            <h1 class="text-2xl text-blue-600">Contact Us</h1><br>
+            <p class="text-xl bg-slate-900 px-4 p-2 rounded-xl text-white "><a href="tel:+919005603082">90056030802</a></p>
+         </div>
+    </div>
+
+</div>
+
+<h1 class="min-[430px]:hidden p-4 bg-slate-800 text-white text-xl font-serif text-center">Office Locations <br>
+  <span class="text-md">it is the starting work place only on noida</span>
+</h1>
+
+
+<div class="min-[430px]:hidden bg-slate-800 flex overflow-x-auto gap-8 overflow-y-hidden p-8">
+   <div class="min-w-full bg-white p-4 rounded-xl">
+      <div class="w-full h-55  p-4 px-8">
+        <img class="w-full h-full rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxy71BKT-qlYKKIVcxa-_J9FAG_dlXeW6gjg&s" alt="">
+      </div>
+      <div class="w-full h-55 p-2 px-4 font-semibold font-serif [&>p]:p-1">
+        <h1 class="text-xl">Gateway office(head office)</h1>
+        <p>A 93 gali no.4</p>
+        <p>Ashok nagar</p>
+        <p>contact us</p>
+        <p><a href="tel:+919005603082">90056030802</a></p>
+        <p><a href="mailto:suhailhasan341@gamil.com">suhailhasan341@gmail.com</a></p>
+      </div>
+   </div>
+   <div class="min-w-full bg-white p-4 rounded-xl">
+      <div class="w-full h-55  p-4 px-8">
+        <img class="w-full h-full rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxy71BKT-qlYKKIVcxa-_J9FAG_dlXeW6gjg&s" alt="">
+      </div>
+      <div class="w-full h-55  p-2 px-4 font-semibold font-serif [&>p]:p-1">
+        <h1 class="text-xl">Gateway office(head office)</h1>
+        <p>A 93 gali no.4</p>
+        <p>Ashok nagar</p>
+        <p>contact us</p>
+        <p><a href="tel:+919005603082">90056030802</a></p>
+        <p><a href="mailto:suhailhasan341@gamil.com">suhailhasan341@gmail.com</a></p>
+      </div>
+   </div>
+   <div class="min-w-full bg-white p-4 rounded-xl">
+      <div class="w-full h-55   p-4 px-8">
+        <img class="w-full h-full rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxy71BKT-qlYKKIVcxa-_J9FAG_dlXeW6gjg&s" alt="">
+      </div>
+      <div class="w-full h-55 p-2 px-4 font-semibold font-serif [&>p]:p-1">
+        <h1 class="text-xl">Gateway office(head office)</h1>
+        <p>A 93 gali no.4</p>
+        <p>Ashok nagar</p>
+        <p>contact us</p>
+        <p><a href="tel:+919005603082">90056030802</a></p>
+        <p><a href="mailto:suhailhasan341@gamil.com">suhailhasan341@gmail.com</a></p>
+      </div>
+   </div>
+
+</div>
+
+<h1 class="max-[430px]:hidden p-4 bg-slate-800 text-white text-xl font-serif text-center">Office Locations <br>
+  <span class="text-md">it is the starting work place only on noida</span>
+</h1>
+
+
+<div class="max-[430px]:hidden bg-slate-800 flex overflow-x-auto gap-20 overflow-y-hidden px-30 p-8">
+   <div class="min-w-80 bg-white p-4 rounded-xl">
+      <div class="w-full h-55  p-4 px-8">
+        <img class="w-full h-full rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxy71BKT-qlYKKIVcxa-_J9FAG_dlXeW6gjg&s" alt="">
+      </div>
+      <div class="w-full h-55 p-2 px-4 font-semibold font-serif [&>p]:p-1">
+        <h1 class="text-xl">Gateway office(head office)</h1>
+        <p>A 93 gali no.4</p>
+        <p>Ashok nagar</p>
+        <p>contact us</p>
+        <p><a href="tel:+919005603082">90056030802</a></p>
+        <p><a href="mailto:suhailhasan341@gamil.com">suhailhasan341@gmail.com</a></p>
+      </div>
+   </div>
+   <div class="min-w-80 bg-white p-4 rounded-xl">
+      <div class="w-full h-55  p-4 px-8">
+        <img class="w-full h-full rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxy71BKT-qlYKKIVcxa-_J9FAG_dlXeW6gjg&s" alt="">
+      </div>
+      <div class="w-full h-55  p-2 px-4 font-semibold font-serif [&>p]:p-1">
+        <h1 class="text-xl">Gateway office(head office)</h1>
+        <p>A 93 gali no.4</p>
+        <p>Ashok nagar</p>
+        <p>contact us</p>
+        <p><a href="tel:+919005603082">90056030802</a></p>
+        <p><a href="mailto:suhailhasan341@gamil.com">suhailhasan341@gmail.com</a></p>
+      </div>
+   </div>
+   <div class="min-w-80 bg-white p-4 rounded-xl">
+      <div class="w-full h-55   p-4 px-8">
+        <img class="w-full h-full rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxy71BKT-qlYKKIVcxa-_J9FAG_dlXeW6gjg&s" alt="">
+      </div>
+      <div class="w-full h-55 p-2 px-4 font-semibold font-serif [&>p]:p-1">
+        <h1 class="text-xl">Gateway office(head office)</h1>
+        <p>A 93 gali no.4</p>
+        <p>Ashok nagar</p>
+        <p>contact us</p>
+        <p><a href="tel:+919005603082">90056030802</a></p>
+        <p><a href="mailto:suhailhasan341@gamil.com">suhailhasan341@gmail.com</a></p>
+      </div>
+   </div>
+</div>
+
+
+<div class=" min-[430px]:hidden mx-auto bg-white fixed bottom-0 border-1 px-2 border-l-0 border-r-0 border-b-0  shadow-black 
+[&>a]:text-xl text-center [&>a>i]:p-4 [&>a>i]:px-8  gap-5 flex  border-slate-700 z-10">
+ <a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i></a>
+ <a href="{% url 'manubar' %}"><i class="fa-solid fa-bars "></i></a>
+ <a href="{% url 'orders' %}"><i class="fa-brands fa-jedi-order "></i></a>
+ <a href="{% url 'profileedit' %}"><i class="fa-solid fa-user "></i></a>
+</div>
+
+
+<div class="p-10 bg-[length:100%_100%] bg-no-repeat max-[430px]:hidden" style="
+background-image:url(https://img.freepik.com/free-photo/abstract-blurred-multi-colored-background-generative-ai_169016-30198.jpg?semt=ais_hybrid&w=740&q=80)">
+  
+  <div class="flex gap-2 ">
+       
+    <div class="w-1/3  py-50 p-5">
+      <img class="w-full h-full rounded-4xl" src="https://acool.in/wp-content/uploads/2025/05/security-system-installation-process-with-technicians-setting-up-cameras-sensors1.jpg" alt="">
+    </div>
+    <div class="w-1/3 py-50 p-5">
+      <img class="w-full h-full rounded-4xl" src="https://cctvcamerainstallationindubai.wordpress.com/wp-content/uploads/2019/10/amc_contract_for_cctv_systems-1.jpg?w=1000" alt="">
+    </div>
+   
+    <div class="w-1/3 p-10 py-15 px-10 float-right mx-auto">
+      <h1 class="py-10 text-4xl font-serif">contact us</h1>
+        <form method="POST" action="" class="[&>input]:bg-slate-50 [&>input]:p-1 [&>input]:w-full [&>input]:border-2 [&>input]:border-transparent [&>i]:p-2
+          [&>input:hover]:border-blue-500 [&>input]:rounded [&>input]:text-black [&>label]:text-white [&>lablel]:font-serif [&>label]:font-semibold">
+              {% csrf_token %}
+
+        <label for="email1">Email :-</label>
+       <input type="text" name="email1" id="email1" placeholder="Enter login email"
+       oninput="checkEmail()">
+     <span id="error-message" class="text-red-500 text-sm hidden">Email not exists, please login</span>
+       <br><br>
+       
+
+      <label for="Name1">Name :-</label>
+      <input type="text" name="name1" id="Name1" placeholder="Enter Name"
+      onintput="" >
+    
+      <br><br>
+
+      <label for="Address1">Address :-</label>
+       <input type="text" name="Address1" id="Address1" placeholder="Enter Current Address">
+       <br>
+       <button class="bg-white hover:bg-blue-500 hover:text-white
+       p-1 my-2 rounded" type="button" onclick="getLocation()">Use Your Current Location</button>
+       <br><br>
+
+     <select name="course1" id="" class="w-full bg-slate-50 p-1 rounded text-black">
+      <option value="">Select work</option>
+      <option value="working">working</option>
+      <option value="installing">installing</option>
+      <option value="servicing">servicing</option>
+     </select><br><br>
+   
+      <label for="massage1">Massages :-</label><br>
+      <textarea class="text-slate-900 w-full border-2 border-transparent p-2 hover:border-blue-500 rounded bg-white font-normal" 
+      cols="70" rows="5" name="massage1" id="massage1" placeholder="Describe...."></textarea><br><br>
+
+       <input class="text-black hover:bg-blue-500 hover:text-white" type="submit" value="submit">
+    </form>
+    </div>
+    
+  </div>
+
+  
+</div>
+
+<!--mobile me 430px ke neeche -->
+<div class="min-[430px]:hidden p-2   bg-[length:100%_100%] bg-no-repeat" style="
+background-image:url(https://img.freepik.com/free-photo/abstract-blurred-multi-colored-background-generative-ai_169016-30198.jpg?semt=ais_hybrid&w=740&q=80)">
+  
+  <div class="flex gap-2 flex-wrap ">
+       
+    <div class="w-full">
+      <img class="w-full h-full rounded-4xl" src="https://acool.in/wp-content/uploads/2025/05/security-system-installation-process-with-technicians-setting-up-cameras-sensors1.jpg" alt="">
+    </div>
+    <div class="w-full p-5">
+      <img class="w-full h-full rounded-4xl" src="https://cctvcamerainstallationindubai.wordpress.com/wp-content/uploads/2019/10/amc_contract_for_cctv_systems-1.jpg?w=1000" alt="">
+    </div>
+   
+    <div class="w-full p-2">
+      <h1 class="py-10 text-4xl font-serif">contact us</h1>
+        <form method="POST" action="{% url 'formfilling' %}" class="[&>input]:bg-slate-50 [&>input]:p-1 [&>input]:w-full [&>input]:border-2 [&>input]:border-transparent [&>i]:p-2
+          [&>input:hover]:border-blue-500 [&>input]:rounded [&>input]:text-black [&>label]:text-white [&>lablel]:font-serif [&>label]:font-semibold">
+              {% csrf_token %}
+
+        <label for="email1">Email :-</label>
+       <input type="text" name="email1" id="email1" placeholder="Enter login email"
+       oninput="checkEmail()">
+     <span id="error-message" class="text-red-500 text-sm hidden">Email not exists, please login</span>
+       <br><br>
+       
+
+      <label for="Name1">Name :-</label>
+      <input type="text" name="name1" id="Name1" placeholder="Enter Name"
+      onintput="" >
+    
+      <br><br>
+
+      <label for="Address1">Address :-</label>
+       <input type="text" name="Address1" id="Address1" placeholder="Enter Current Address">
+       <br>
+       <button class="bg-white hover:bg-blue-500 hover:text-white
+       p-1 my-2 rounded" type="button" onclick="getLocation()">Use Your Current Location</button>
+       <br><br>
+
+     <select name="course1" id="" class="w-full bg-slate-50 p-1 rounded text-black">
+      <option value="">Select work</option>
+      <option value="working">working</option>
+      <option value="installing">installing</option>
+      <option value="servicing">servicing</option>
+     </select><br><br>
+   
+      <label for="massage1">Massages :-</label><br>
+      <textarea class="text-slate-900 w-full border-2 border-transparent p-2 hover:border-blue-500 rounded bg-white font-normal" 
+      cols="70" rows="5" name="massage1" id="massage1" placeholder="Describe...."></textarea><br><br>
+
+       <input class="text-black hover:bg-blue-500 hover:text-white" type="submit" value="submit">
+    </form>
+    </div>
+    
+  </div>
+  
+</div>
+
+
+<div id="profile" class="max-[430px]:hidden w-100 hidden right-0 absolute top-15 [%>p]:w-full bg-white p-4 [&>p]:py-4 float-right
+  [&>p:hover]:bg-slate-100 [&>p]:p-2 [&>*>span]:float-right [&>p]:rounded [&>hr]:text-slate-400 [&>p>i]:p-2 rounded font-serif">
+
+  <h1 class="text-2xl font-semibold shadow py-2">Profile details <span><a href="{% url 'orders' %}"><i class="fa-brands fa-jedi-order"></i></a></span></h1>
+  <hr>
+  
+  <hr>
+{% with datasave.last as last_item %}
+  <p><i class="fa-solid fa-user"></i>Name:-  <span>{{ last_item.name}}</span></p>
+  <hr>
+  <p><i class="fa-solid fa-circle-user"></i>Username:- <span>{{ last_item.username }}</span></p>
+  <hr>
+  <p><i class="fa-solid fa-envelope-circle-check"></i>UserEmail:- <span>{{  last_item.email }}</span></p>
+  <hr>
+  <p><i class="fa-solid fa-transgender"></i>Usergender:- <span>{{ last_item.gender }}</span></p>
+  <hr>
+  <p><i class="fa-solid fa-unlock"></i><a href="{% url 'edit' last_item.id %}">changepassword</a></p>
+  <hr>
+  <p><i class="fa-solid fa-calendar-days"></i>Date of birth:- <span>{{  last_item.DOB }}</span></p>
+  <hr>
+  <h1 class=" py-1 text-blue-700 "><a href="{% url 'edit' last_item.id %}">if you can change every fields tap below this tag </a></h1>
+  <h1 class="text-center"><a href="{% url 'edit' last_item.id %}"><i class="fa-solid fa-pen-to-square bg-slate-700 hover:bg-slate-500 hover:text-black p-4 rounded-full text-white"></i></a></h1>
+  
+ {% endwith %}
+   {% if logged_in %}
+    <p >
+       <i class="fa-solid fa-right-from-bracket"></i><a href="{% url 'logout' %}">Logout</a>
+    </p>
+  {% else %}
+      <p >
+           <i class="fa-solid fa-right-to-bracket"></i><a href="{% url 'login' %}">Login</a>
+       </p>                                                             
+  {% endif %} 
+  <h1 onclick="profileR()" class="w-full hover:bg-red-600 hover:text-white text-center p-2">exit &times</h1>
+</div>
+
+
+      <div></div>
+<br><br><br>
+<!-- HTML ke end me -->
+<script src="{% static 'index.js' %}">
+  
+</script>
+</body>
+</html>
+
+</body>
+</html>

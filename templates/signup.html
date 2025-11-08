@@ -1,0 +1,123 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="w-80 h-150 max-[430px]:hidden mx-auto p-5 bg-gray-100 m-10 rounded-xl">
+        {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+            {{ message }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+ <h1 class="py-4">Signup</h1>
+
+<form method="POST" action="" class="[&>input]:bg-slate-50 [&>input]:p-1 [&>input]:w-[85%] 
+    [&>input]:border-2 [&>input]:border-transparent [&>i]:p-2
+          [&>input:hover]:border-blue-500 [&>input]:rounded">
+    {% csrf_token %}
+    
+    <i class="fa-solid fa-user"></i><input type="text" name="name" placeholder="Enter you name"><br><br>
+
+    <i class="fa-solid fa-circle-user"></i><input type="text" name="username" placeholder="Choose a Username" required><br><br>
+    
+    <i class="fa-solid fa-envelopes-bulk"></i><input type="email" name="email" placeholder="Enter your Email" required><br><br>
+
+    <i class="fa-solid fa-neuter"></i><select name="genders" class="w-[85%] hover:border-2 p-1 rounded border-transparent hover:border-blue-700" name="" id="">
+        <option value="Select your Gender">Select your Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+
+    </select><br><br>
+
+    <i class="fa-solid fa-lock"></i><input type="password" name="password" placeholder="Password" required><br><br>
+    
+    <i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="confirmpassword" placeholder="Confirm Password" required><br><br>
+     
+    <label for="dob">Please enter your DOB</label><br>
+    <i class="fa-solid fa-calendar-week"></i><input type="date" id="dob" name="dob"><br><br>
+
+
+
+    
+    <button type="submit" class="w-full bg-blue-600 p-2 rounded text-white px-4 hover:bg-blue-500">Signup</button>
+</form>
+
+
+    </div>
+  
+
+
+
+
+
+ <!--430px ke neeche for mobile-->
+    <div class="w-full min-[430px]:hidden p-5 font-serif [&>hr]:text-slate-600 bg-gray-200 ">
+        {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+            {{ message }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+ <h1 class="py-4  text-2xl text-center font-semibold">Signup</h1>
+ <hr>
+ <br>
+
+<form method="POST" action="" class="[&>input]:bg-white [&>input]:p-2 [&>input]:w-[85%] 
+    [&>input]:border-2 [&>input]:border-transparent [&>i]:p-2
+          [&>input:hover]:border-blue-500 [&>input]:rounded">
+    {% csrf_token %}
+     
+    <i class="fa-solid fa-user"></i><input type="text" name="name" placeholder="Enter you name"><br><br>
+    <hr>
+     <br>
+    <i class="fa-solid fa-circle-user"></i><input type="text" name="username" placeholder="Choose a Username" required><br><br>
+    <hr>
+    <br>
+    <i class="fa-solid fa-envelopes-bulk"></i><input type="email" name="email" placeholder="Enter your Email" required><br><br>
+    <hr>
+    <br>
+    <i class="fa-solid fa-neuter"></i><select name="genders" class="w-[85%] hover:border-2 p-1 rounded border-transparent hover:border-blue-700" name="" id="">
+        <option value="Select your Gender">Select your Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+
+    </select><br><br>
+     <hr>
+     <br>
+    <i class="fa-solid fa-lock"></i><input type="password" name="password" placeholder="Password" required><br><br>
+     <hr>
+     <br>
+    <i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="confirmpassword" placeholder="Confirm Password" required><br><br>
+     <hr>
+     <br>
+    <label for="dob">Please enter your DOB</label><br>
+    <i class="fa-solid fa-calendar-week"></i><input type="date" id="dob" name="dob"><br><br>
+    <hr>
+    <br>
+
+
+    
+    <button type="submit" class="w-full bg-blue-600 p-2 rounded text-white px-4 hover:bg-blue-500">Signup</button>
+</form>
+
+
+    </div>
+     
+
+
+</body>
+</html>

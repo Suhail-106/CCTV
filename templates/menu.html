@@ -1,0 +1,140 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu bar</title>
+    <script src="{% static 'index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="min-[430px]:hidden p-2 px-2 font-serif font-semibold shadow">
+  <h1 class="bg-blue-100 p-4 rounded-md">Electrical services
+          <span class="float-right"> 
+               {% if logged_in %}
+        {% if messages %}
+            <script>
+                {% for message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'signup' %}">Signup</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+                </span>
+  </h1>
+
+</div>
+     <div class=" w-full" >
+
+          <div class="w-full h-50 image_container bg-length[100%_100%] bg-no-repeat 
+          " style="background-image:url(https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8=)">
+                 {% for CCTVElectrical in CCTVElectrical %}
+                <img id="myImage{{ CCTVElectrical.id }}" src="{{ CCTVElectrical.imageurl }}" 
+                class="hidden w-full h-full" alt="{{ CCTVElectrical.name }}">
+           {% endfor %}
+          </div>   
+        <div class="overflow-y-auto h-120">
+          <div class="w-full [&>h1]:font-semibold p-2 px-4 [&>p]:px-2 [&>p]:py-2 [&>p:hover]:bg-slate-200 
+            [&>P>span]:text-slate-800 [&>p>span]:text-sm items ">
+            <h1>CCTV Electrical</h1>  
+            <h2 class="text-sm text-slate-800">In this, basically those people provide service in:</h2>
+           {% for CCTVElectrical in CCTVElectrical|slice:":5" %}  
+            <p data-imgs="{{ CCTVElectrical.id }}">{{ CCTVElectrical.name }}</p>
+            {% endfor %}
+            <h2 class="text-sm text-slate-800">This means the same contractor does both the CCTV + electrical work.</h2>
+          </div>
+
+          <div class="w-full [&>h1]:font-semibold p-2 px-4 [&>p]:px-2 [&>p]:py-2 [&>p:hover]:bg-slate-200 
+            [&>P>span]:text-slate-800 [&>p>span]:text-sm items">
+           <h1>Control, Circuit, Relay & Voltage <span>Technical/Electrical side</span></h1>
+           {% for CCTVElectrical in CCTVElectrical|slice:"5:9" %}  
+            <p data-imgs="{{ CCTVElectrical.id }}">{{ CCTVElectrical.name }}</p>
+            {% endfor %}
+          </div>      
+   
+
+          <div class="w-full [&>h1]:font-semibold p-2 px-4 [&>p]:px-2 [&>p]:py-2 [&>p:hover]:bg-slate-200 
+            [&>P>span]:text-slate-800 [&>p>span]:text-sm items">
+            <h1>CCTV Installation</h1>  
+            <h2 class="text-sm text-slate-800">In this, basically Pre-installation & planning</h2>
+           {% for CCTVElectrical in CCTVElectrical|slice:"9:12" %}  
+            <p data-imgs="{{ CCTVElectrical.id }}">👉 {{ CCTVElectrical.name }}</p>
+            {% endfor %}
+            <h2 class="text-sm text-slate-800">Installation Phase</h2>
+            {% for CCTVElectrical in CCTVElectrical|slice:"12:14" %}  
+            <p data-imgs="{{ CCTVElectrical.id }}">👉 {{ CCTVElectrical.name }}</p>
+            {% endfor %}
+            <h2 class="text-sm text-slate-800">This means the same contractor does both the CCTV + electrical work.</h2>
+          </div>
+
+          <div class="w-full [&>h1]:font-semibold p-2 px-4 [&>p]:px-2 [&>p]:py-2 [&>p:hover]:bg-slate-200 
+            [&>P>span]:text-slate-800 [&>p>span]:text-sm items">
+           <h1>Installation phase</h1>
+           {% for CCTVElectrical in CCTVElectrical|slice:"14:15" %}  
+            <p data-imgs="{{ CCTVElectrical.id }}">👉 {{ CCTVElectrical.name }}</p>
+            {% endfor %}
+            <h1>System Configuration</h1>
+             {% for CCTVElectrical in CCTVElectrical|slice:"15:19" %}  
+            <p data-imgs="{{ CCTVElectrical.id }}">👉 {{ CCTVElectrical.name }}</p>
+            {% endfor %}
+          </div>
+
+        
+</div>  
+   </div>
+
+<div class=" min-[430px]:hidden mx-auto bg-white fixed bottom-0 border-1 px-2 border-l-0 border-r-0 border-b-0  shadow-black 
+[&>a]:text-xl text-center [&>a>i]:p-4 [&>a>i]:px-8  gap-5 flex  border-slate-700 z-10">
+ <a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i></a>
+ <a href="{% url 'manubar' %}"><i class="fa-solid fa-bars "></i></a>
+ <a href="{% url 'orders' %}"><i class="fa-brands fa-jedi-order "></i></a>
+ <a href="{% url 'profileedit' %}"><i class="fa-solid fa-user "></i></a>
+</div>
+   <script>
+    const items1 = document.querySelectorAll('.items p');
+    const images1 = document.querySelectorAll('.image_container img');
+
+    function showImage(item) {
+        const imgId = item.getAttribute('data-img');
+        images1.forEach(img => {
+            img.classList.remove('active');
+        });
+        document.getElementById('myImages' + imgId).classList.add('active');
+    }
+
+    function hideImages() {
+        images1.forEach(img => {
+            img.classList.remove('active');
+        });
+    }
+
+    items1.forEach(item => {
+        // Mouse hover
+        item.addEventListener('mouseover', () => {
+            showImage(item);
+        });
+
+        // Click event
+        item.addEventListener('click', () => {
+            showImage(item);
+        });
+
+        // Touch event for mobile
+        item.addEventListener('touchstart', () => {
+            showImage(item);
+        });
+
+        // Mouse out hide only if needed
+        item.addEventListener('mouseout', () => {
+            hideImages();
+        });
+    });
+</script>
+
+</body>
+</html>

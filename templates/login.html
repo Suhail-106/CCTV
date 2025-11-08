@@ -1,0 +1,30 @@
+{% load static %}   
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="w-80 h-80 mx-auto p-5 bg-gray-100 m-10 rounded-xl">
+      
+  {% if error_massage %}
+  <p>{{error_massage}}</p>
+  {% endif %}      
+ <h1 class="py-4">Pleasae login</h1>
+
+<form method="POST" action="" class="[&>input]:bg-slate-50 [&>input]:p-1 [&>input]:w-full
+    [&>input]:border-2 [&>input]:border-transparent [&>i]:p-2
+          [&>input:hover]:border-blue-500 [&>input]:rounded">
+    {% csrf_token %}
+    <input type="text" name="email" placeholder="Username/email" required><br><br>
+    <input type="password" name="password" placeholder="Password" required><br><br>
+    <button type="submit" class="w-full bg-white p-2 rounded hover:text-white px-4 hover:bg-blue-500">Login</button>
+</form>
+<br><br>
+<h1>if not you account please <a class="text-blue-600 hover:underline" href="{% url 'signup' %}">signup</a></h1>
+</div>
+</body>
+</html>

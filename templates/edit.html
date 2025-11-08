@@ -1,0 +1,107 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing profile</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+    <script src="{% static 'index.js' %}"></script>
+</head>
+<body>
+    <div class="w-80 max-[430px]:hidden h-150 mx-auto p-5 bg-gray-100 m-10 rounded-xl py-1">
+          {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+           ⚠️ [ {{ message }} ] 
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+<br>
+    <form method="POST" action="" class="[&>input]:bg-slate-50 [&>input]:p-1 [&>input]:w-[85%] 
+    [&>input]:border-2 [&>input]:border-transparent [&>i]:p-2 
+          [&>input:hover]:border-blue-500 [&>input]:rounded">
+    {% csrf_token %}
+    <i class="fa-solid fa-user"></i><input type="text" name="name" value="{{ data.name }}" required><br><br>
+    <hr>
+    <i class="fa-solid fa-circle-user"></i><input type="text" id="username" name="username" value="{{ data.username }}" required><br><br>
+    <hr>
+    <i class="fa-solid fa-envelopes-bulk"></i><input type="email" id="email" name="email" value="{{ data.email }}" required><br>
+     <button type="button" onclick="enableEmail()">Edit Email</button><br><br>
+    <hr>
+    <i class="fa-solid fa-neuter"></i><select name="gender">
+        <option value="male" {% if data.gender == 'male' %}selected{% endif %}>Male</option>
+        <option value="female" {% if data.gender == 'female' %}selected{% endif %}>Female</option>
+        <option value="other" {% if data.gender == 'other' %}selected{% endif %}>Other</option>
+    </select><br><br>
+
+   <i class="fa-solid fa-lock"></i><input type="password" name="password" value="{{ data.password }}" required><br><br>
+   <hr>
+    <i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="confirmpassword" value="{{ data.confirmpassword }}" required><br><br>
+    <hr>
+      <label for="dob">Please enter your DOB</label><br>  
+    <input type="date" name="dob" id="dob" value="{{ data.DOB|date:'Y-m-d' }}"><br><br>
+     <hr>
+    <input class="w-full bg-blue-600 p-2 rounded hover:text-white px-4 hover:bg-blue-500" type="submit" value="Save">
+</form>
+
+</div>
+
+
+ <div class="w-full min-[430px]:hidden font-serif  p-5 bg-gray-200 [&>hr]:text-slate-600">
+  <h1 class="py-2 text-2xl text-center font-semibold">Editing Profile</h1>
+  <hr>
+  <br>
+
+          {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+           ⚠️ [ {{ message }} ] 
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+<br>
+    <form method="POST" action="" class="[&>input]:bg-white [&>input]:p-2 [&>input]:my-1 [&>input]:w-[85%] 
+    [&>input]:border-2 [&>input]:border-transparent [&>i]:p-2 [&>hr]:text-slate-600 
+          [&>input:hover]:border-blue-500 [&>input]:rounded">
+    {% csrf_token %}
+    <i class="fa-solid fa-user"></i><input type="text" name="name" value="{{ data.name }}" required><br><br>
+    <hr>
+    <br>
+    <i class="fa-solid fa-circle-user"></i><input type="text" id="username" name="username" value="{{ data.username }}" required><br><br>
+     <hr>
+     <br>
+    <i class="fa-solid fa-envelopes-bulk"></i><input type="email" id="email" name="email" value="{{ data.email }}" required><br>
+     <br>
+     <hr>
+     <br>
+     <i class="fa-solid fa-neuter"></i><label for="gender">Gender</label><br>
+    <select id="gender" name="gender" class="w-50">
+        <option value="male" {% if data.gender == 'male' %}selected{% endif %}>Male</option>
+        <option value="female" {% if data.gender == 'female' %}selected{% endif %}>Female</option>
+        <option value="other" {% if data.gender == 'other' %}selected{% endif %}>Other</option>
+    </select><br><br>
+    <hr>
+    <br>
+   <i class="fa-solid fa-lock"></i><input type="password" name="password" value="{{ data.password }}" required><br><br>
+   <hr>
+   <br>
+    <i class="fa-solid fa-unlock-keyhole"></i><input type="password" name="confirmpassword" value="{{ data.confirmpassword }}" required><br><br>
+   <hr>
+   <br>
+      <label for="dob">Please enter your DOB</label><br>  
+    <input type="date" name="dob" id="dob" value="{{ data.DOB|date:'Y-m-d' }}"><br><br>
+  <hr>
+  <br>
+    <i class="fa-solid fa-floppy-disk text-xl"></i><input class="w-full bg-blue-600 p-2 rounded hover:text-white px-4 hover:bg-blue-500" type="submit" value="Save">
+</form>
+
+</div>
+
+
+</body>
+</html>
