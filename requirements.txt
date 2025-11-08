@@ -1,0 +1,12 @@
+asgiref==3.10.0
+certifi==2025.10.5
+concurrently==2.1
+distlib==0.4.0
+Django==5.2.7
+filelock==3.20.0
+pillow==11.3.0
+platformdirs==4.5.0
+sqlparse==0.5.3
+tzdata==2025.2
+virtualenv==20.35.1
+virtualenvwrapper-win==1.2.7
