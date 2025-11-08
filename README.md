@@ -1,7 +1,7 @@
 
 # CCTV projects
 
-A Django-based Amazon clone with user authentication, OTP verification, Tailwind integration, and secure email handling.
+A Django-based website with user authentication, OTP verification, Tailwind integration, and secure email handling, and profile making with editing.
 
 ---
 
@@ -99,8 +99,8 @@ Go to `maincontainer` → Function `user_login` → Line **468** → Add your em
 ## 🔑 Django Admin Credentials
 
 ```
-Username: adminhasan
-Password: back1234
+Username: adminarbiya
+Password: arbiya123
 ```
 
 ---
@@ -110,6 +110,7 @@ Password: back1234
 * Register/Login users
 * OTP verification
 * Product browsing (if included)
+* Profile making with Editing
 
 ---
 
