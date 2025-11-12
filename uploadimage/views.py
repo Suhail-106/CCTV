@@ -100,7 +100,7 @@ def login_view(request):
         send_mail(
             subject = 'Your otp code',
             message = f'Hello {user.username},\nYour otp code is: {otp}',
-            from_email = 'companypvtltd35@gmail.com',
+            from_email = '',#This is the place of Email input in inverted comma
             recipient_list = [user.email],
         )
         return redirect('verify_otp')
