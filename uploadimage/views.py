@@ -193,14 +193,14 @@ Message: {massage1}
         send_mail(
             subject="your submission",
             message= message_body,
-            from_email = 'companypvtltd35@gmail.com',
-            recipient_list = ["hasansuhail3666@gmail.com" ]
+            from_email = '',#This is the place of Email input in inverted comma
+            recipient_list = [""] #This is the place of Email input in inverted comma for your personal mail for user gave work information 
         )
 
         send_mail(
             subject="thanks for select my servicing",
             message=f"Have a nice day {Name1} and working start after 1 day and any condition after 1 to 3 days",
-            from_email="companypvtltd35@gmail.com",
+            from_email="",#This is the place of Email input in inverted comma
             recipient_list= [email1]
         )
 
