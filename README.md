@@ -92,8 +92,8 @@ export EMAIL_PASS="your_app_password"
 
 ### Step 3 – Set Email in `views.py`
 
-Go to `uploadimage` → Function `login_view` → Line **103** → Add your email. For otp   
-and Go to `uploadimage` -> Function `formfilling` -> **196** and same work in line **203** -> Add you email. For user information to your mail,and giving conformation to user.
+Go to `uploadimage` → Function `login_view` → Line **103** → Add your email. For otp,    
+and Go to `uploadimage` -> Function `formfilling` -> **196** and same work in line **203** -> Add you email. For user information to your mail,and giving conformation to user.  
 last step Got to `uploadimage -> Funciton `formfilliing -> **197** -> Add your personal mail for take a work information to user.
 
 ---
