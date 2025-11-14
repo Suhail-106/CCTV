@@ -26,11 +26,11 @@ cd amazone-clone
 ```bash
 python -m venv venv
 ```
-<div style="display:flex;">
-<h3>Customer send work (Windows)</h3>:<img width="300" height="912" alt="image" src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" />
-<h3>Home page (Windows)</h3>:<img width="300" height="912" alt="image" src="https://github.com/user-attachments/assets/786cb3c3-ef65-4a81-9a88-bae60a567c4e" />
-<h3>Customer send work (Windows)</h3>:<img width="300" height="912" alt="image" src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" />
-</div>
+<p>
+  <img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="250">
+  <img src="https://github.com/user-attachments/assets/786cb3c3-ef65-4a81-9a88-bae60a567c4e" width="250">
+  <img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="250">
+</p>
 
 ```bash
 venv\Scripts\activate
