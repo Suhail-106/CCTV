@@ -126,8 +126,7 @@ Thanks for using this project! Contributions and feedback are welcome.
 ---
 
 <p> 
-  <h3>This is the image of mobile layott</h3>
-  <h2>Image of my project layout for window screen</h2>
+  <h3>This is the image of mobile layout</h3>
   <img src="https://github.com/user-attachments/assets/eb38409d-5e06-4e51-9e19-4a85779606a5" width="200">
   <img src="https://github.com/user-attachments/assets/32279829-6849-4d54-b1e9-7eba5d95b316" width="200">
   <img src="https://github.com/user-attachments/assets/18273096-bbf2-4c73-8694-3e96e2ef2ff6" width="200">
