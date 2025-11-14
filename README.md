@@ -125,6 +125,16 @@ Thanks for using this project! Contributions and feedback are welcome.
 
 ---
 
+<p> 
+  <h3>This is the image of mobile layout</h3>
+  <h2>Image of my project layout for window screen</h2>
+  <img src="https://github.com/user-attachments/assets/eb38409d-5e06-4e51-9e19-4a85779606a5" width="200">
+  <img src="https://github.com/user-attachments/assets/32279829-6849-4d54-b1e9-7eba5d95b316" width="200">
+  <img src="https://github.com/user-attachments/assets/18273096-bbf2-4c73-8694-3e96e2ef2ff6" width="200">
+  <img width="200" src="https://github.com/user-attachments/assets/717dc819-67ac-4d69-bc4f-6251c1dc371a"/>
+  <img width="200" src="https://github.com/user-attachments/assets/f794a461-aa23-4885-86cd-4710d152560c"/>
+</p>
+
 ## 🧑‍💻 Author
 
 **Suhail** – Passionate Python & Django Developer
