@@ -27,9 +27,10 @@ cd amazone-clone
 python -m venv venv
 ```
 <p>
-  <img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="300">
-  <img src="https://github.com/user-attachments/assets/786cb3c3-ef65-4a81-9a88-bae60a567c4e" width="300">
-  <img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="300">
+  <h2>Image of my project layout for window screen</h2>
+  <img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="310">
+  <img src="https://github.com/user-attachments/assets/786cb3c3-ef65-4a81-9a88-bae60a567c4e" width="310">
+  <img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="310">
 </p>
 
 ```bash
