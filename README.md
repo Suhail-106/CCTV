@@ -28,7 +28,8 @@ cd amazone-clone
 python -m venv venv
 ```
 
-### Activate (Windows):
+### Activate (Windows):<img width="1893" height="912" alt="image" src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" />
+
 
 ```bash
 venv\Scripts\activate
