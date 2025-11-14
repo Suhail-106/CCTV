@@ -29,7 +29,7 @@ python -m venv venv
 ```
 <p align="center">
   <img src="LINK-1" width="250" />
-### Activate (Windows):<img width="250" height="912" alt="image" src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" />
+<h1>Activate (Windows)</h1>:<img width="250" height="912" alt="image" src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" />
 </p>
 
 ```bash
