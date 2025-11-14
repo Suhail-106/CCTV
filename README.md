@@ -27,9 +27,9 @@ cd amazone-clone
 python -m venv venv
 ```
 <p>
-  <h3>form for user (window)</h3><img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="250">
-  <h3>Home page (window)</h3><img src="https://github.com/user-attachments/assets/786cb3c3-ef65-4a81-9a88-bae60a567c4e" width="250">
-  <h3>Location page (windw)</h3><img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="250">
+  <img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="300">
+  <img src="https://github.com/user-attachments/assets/786cb3c3-ef65-4a81-9a88-bae60a567c4e" width="300">
+  <img src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" width="300">
 </p>
 
 ```bash
