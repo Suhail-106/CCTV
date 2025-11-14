@@ -1,4 +1,4 @@
-
+<img width="1916" height="908" alt="image" src="https://github.com/user-attachments/assets/211728a0-55ca-4f49-92e0-8e90bcf46cbc" />
 # CCTV projects
 
 A Django-based website with user authentication, OTP verification, Tailwind integration, and secure email handling, and profile making with editing.
@@ -30,6 +30,9 @@ python -m venv venv
 <p align="center">
   <img src="LINK-1" width="250" />
 <h3>Customer send work (Windows)</h3>:<img width="300" height="912" alt="image" src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" />
+<h3>Home page (Windows)</h3>:<img width="300" height="912" alt="image" src="https://github.com/user-attachments/assets/786cb3c3-ef65-4a81-9a88-bae60a567c4e" />
+<h3>Customer send work (Windows)</h3>:<img width="300" height="912" alt="image" src="https://github.com/user-attachments/assets/eb9dc20c-2359-4798-80b8-cfaf08d66d52" />
+
 </p>
 
 ```bash
